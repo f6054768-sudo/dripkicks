@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DripKicks | Official Store</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for SVG Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,900;1,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#0d0d0d',
+                            dark: '#141414',
+                            card: '#1a1a1a',
+                            border: '#2a2a2a',
+                            accent: '#ffffff',
+                            highlight: '#eab308' // Vibrant accent
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .font-display {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #141414;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 3px;
+        }
+        .glass-nav {
+            background: rgba(13, 13, 13, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .product-card:hover .product-img {
+            transform: scale(1.06);
+        }
+        .hero-title {
+            letter-spacing: -0.04em;
+        }
+    </style>
+</head>
+<body class="bg-brand-black text-white antialiased selection:bg-white selection:text-black">
+
+    <header class="fixed top-0 left-0 w-full z-40 glass-nav border-b border-brand-border/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <span class="font-display font-black text-2xl tracking-tighter uppercase italic group-hover:text-gray-300 transition-colors">
+                    DRIP<span class="text-white underline decoration-2 underline-offset-4">KICKS</span>
+                </span>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wider uppercase">
+                <a href="#hero" class="hover:text-gray-400 transition-colors">Inicio</a>
+                <a href="#productos" class="hover:text-gray-400 transition-colors">Productos</a>
+                <a href="#about" class="hover:text-gray-400 transition-colors">Nosotros</a>
+                <a href="#contacto" class="hover:text-gray-400 transition-colors">Contacto</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleCart()" class="relative p-2.5 rounded-full hover:bg-brand-card transition-colors flex items-center justify-center text-white" aria-label="Carrito de compras">
+                    <i class="fa-solid fa-bag-shopping text-xl"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-white text-black font-extrabold text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero" class="relative min-h-screen pt-24 pb-16 flex items-center justify-center overflow-hidden border-b border-brand-border">
+        <!-- Background Gradient Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/5 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-72 h-72 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-card border border-brand-border text-xs uppercase tracking-widest text-gray-400 mb-6 animate-pulse">
+                <span class="w-2 h-2 rounded-full bg-green-500"></span> Stock Oficial Disponible
+            </div>
+            
+            <h1 class="hero-title font-display font-black text-5xl sm:text-7xl md:text-8xl lg:text-9xl uppercase italic tracking-tighter leading-none mb-6">
+                ELEVATE YOUR <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-gray-600">DRIP</span>
+            </h1>
+            
+            <p class="max-w-2xl mx-auto text-gray-400 text-base sm:text-lg md:text-xl font-normal mb-8 leading-relaxed">
+                Equipamiento técnico Nike de alto rendimiento. Primeras capas, guantes tácticos y pasamontañas diseñados para la calle y el entrenamiento exigente.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#productos" class="w-full sm:w-auto px-8 py-4 bg-white text-black font-extrabold text-sm uppercase tracking-wider rounded-none hover:bg-gray-200 transition-all transform hover:-translate-y-0.5">
+                    Ver Colección <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+                <a href="https://wa.me/56940016753" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-brand-card border border-brand-border text-white font-bold text-sm uppercase tracking-wider rounded-none hover:bg-brand-border transition-all flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg text-green-400"></i> Contactar Vendedor
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="productos" class="py-24 bg-brand-black border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Colección Destacada</h2>
+                    <h3 class="font-display font-black text-3xl sm:text-5xl uppercase italic tracking-tight">
+                        PRODUCTOS POPULARES
+                    </h3>
+                </div>
+                <p class="text-gray-400 text-sm mt-4 md:mt-0 max-w-xs">
+                    Productos 100% garantizados. Envíos a todo Chile con entrega rápida.
+                </p>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="products-container">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-brand-dark border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-8 bg-brand-card border border-brand-border/50 rounded-lg">
+                    <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 text-white">
+                        <i class="fa-solid fa-truck-fast text-xl"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-lg uppercase mb-2">Envíos Rápidos</h4>
+                    <p class="text-gray-400 text-sm">Coordinación directa por WhatsApp para entregas presenciales o envíos express a todo el país.</p>
+                </div>
+                <div class="p-8 bg-brand-card border border-brand-border/50 rounded-lg">
+                    <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 text-white">
+                        <i class="fa-solid fa-shield-halved text-xl"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-lg uppercase mb-2">Calidad Garantizada</h4>
+                    <p class="text-gray-400 text-sm">Productos de alta resistencia, tecnología Dri-FIT y materiales premium adaptables.</p>
+                </div>
+                <div class="p-8 bg-brand-card border border-brand-border/50 rounded-lg">
+                    <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 text-white">
+                        <i class="fa-brands fa-whatsapp text-xl text-green-400"></i>
+                    </div>
+                    <h4 class="font-display font-bold text-lg uppercase mb-2">Atención Personalizada</h4>
+                    <p class="text-gray-400 text-sm">Resolvemos tus dudas en minutos vía WhatsApp (+56940016753) antes de realizar tu compra.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto" class="bg-brand-black pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-brand-border">
+                <div class="md:col-span-2">
+                    <a href="#" class="font-display font-black text-3xl tracking-tighter uppercase italic block mb-4">
+                        DRIP<span class="underline decoration-2 underline-offset-4">KICKS</span>
+                    </a>
+                    <p class="text-gray-400 text-sm max-w-sm mb-6 leading-relaxed">
+                        Tu tienda especializada en accesorios y ropa técnica Nike de alto impacto. Estilo urbano, comodidad y máximo rendimiento.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://wa.me/56940016753" target="_blank" class="w-10 h-10 rounded-full bg-brand-card border border-brand-border flex items-center justify-center text-gray-300 hover:text-white hover:bg-green-600 transition-colors">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-brand-card border border-brand-border flex items-center justify-center text-gray-300 hover:text-white hover:bg-pink-600 transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="font-display font-bold uppercase tracking-wider text-sm mb-4">Navegación</h5>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#hero" class="hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="#productos" class="hover:text-white transition-colors">Productos Nike</a></li>
+                        <li><a href="#about" class="hover:text-white transition-colors">Nosotros</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-display font-bold uppercase tracking-wider text-sm mb-4">Contacto Directo</h5>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-green-400"></i> +56 9 4001 6753
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-red-400"></i> Santiago, Chile
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+                <p>&copy; 2026 DripKicks. Todos los derechos reservados.</p>
+                <p class="mt-2 sm:mt-0">Diseño inspirado en la cultura Streetwear & Sportswear</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Overlay & Drawer -->
+    <div id="cart-overlay" class="fixed inset-0 bg-black/70 z-50 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm" onclick="toggleCart()"></div>
+    
+    <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[420px] bg-brand-dark border-l border-brand-border z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
+        <!-- Drawer Header -->
+        <div class="p-6 border-b border-brand-border flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-bag-shopping text-xl"></i>
+                <h3 class="font-display font-bold text-xl uppercase italic">Tu Carrito</h3>
+            </div>
+            <button onclick="toggleCart()" class="text-gray-400 hover:text-white p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Drawer Items list -->
+        <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar">
+            <!-- Items injected by JS -->
+        </div>
+
+        <!-- Drawer Footer -->
+        <div class="p-6 border-t border-brand-border bg-brand-black">
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-gray-400 text-sm uppercase">Total Estimado</span>
+                <span id="cart-total" class="font-display font-extrabold text-2xl text-white">$0 CLP</span>
+            </div>
+            <button onclick="checkoutWhatsApp()" class="w-full py-4 bg-green-600 hover:bg-green-500 text-white font-extrabold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors">
+                <i class="fa-brands fa-whatsapp text-xl"></i> Comprar por WhatsApp
+            </button>
+            <p class="text-center text-xs text-gray-500 mt-3">
+                Serás redirigido al chat con el detalle de tu pedido listo para enviar.
+            </p>
+        </div>
+    </div>
+
+    <a href="https://wa.me/56940016753?text=Hola%20DripKicks,%20tengo%20una%20consulta%20sobre%20sus%20productos." 
+       target="_blank" 
+       class="fixed bottom-6 right-6 z-30 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-400 transition-all transform hover:scale-110 group"
+       title="Contactar por WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+        <span class="absolute right-16 bg-white text-black text-xs font-bold px-3 py-1.5 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            ¿Dudas? Chatea con nosotros
+        </span>
+    </a>
+
+    <script>
+        const products = [
+            {
+                id: 'guantes-nike',
+                name: 'Guantes Nike Dri-FIT Accelerate',
+                category: 'Accesorios',
+                price: 6990,
+                description: 'Guantes tácticos de running y entrenamiento con tecnología Dri-FIT repelente al agua, ajuste térmico ligero y elementos reflectantes.',
+                sizes: ['S', 'M', 'L', 'XL'],
+                imageUrl: 'image_d85e6a.jpg'
+            },
+            {
+                id: 'primera-capa-nike',
+                name: 'Primera Capa Nike Pro Thermal',
+                category: 'Ropa Técnica',
+                price: 11990,
+                description: 'Polera manga larga de compresión térmica repelente al agua con logo Nike reflectante. Diseñada para un rendimiento máximo en condiciones frías.',
+                sizes: ['S', 'M', 'L', 'XL'],
+                imageUrl: 'image_d85e4d.jpg'
+            },
+            {
+                id: 'pasamontanas-nike',
+                name: 'Pasamontañas Nike Pro Therma-FIT Hood',
+                category: 'Accesorios',
+                price: 7990,
+                description: 'Balaclava/Pasamontañas técnico Nike Pro con aislamiento Therma-FIT para protección superior contra el frío, lluvia y viento.',
+                sizes: ['Única (Ajustable)'],
+                imageUrl: 'image_d85e67.jpg'
+            }
+        ];
+
+        // Shopping Cart State
+        let cart = [];
+        const whatsappNumber = "56940016753";
+
+        // Format Chilean Peso
+        function formatMoney(amount) {
+            return '$' + amount.toLocaleString('es-CL');
+        }
+
+        function renderProducts() {
+            const container = document.getElementById('products-container');
+            container.innerHTML = products.map(product => {
+                const defaultSize = product.sizes[0];
+                return `
+                    <div class="product-card bg-brand-card border border-brand-border rounded-lg overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-gray-500 group">
+                        <div>
+                            <div class="relative overflow-hidden bg-zinc-900 h-80 sm:h-96">
+                                <img 
+                                    src="${product.imageUrl}" 
+                                    alt="${product.name}" 
+                                    class="product-img w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    onerror="this.onerror=null; this.src='https://placehold.co/600x800/18181b/ffffff?text=${encodeURIComponent(product.name)}';"
+                                />
+                                <span class="absolute top-4 left-4 bg-white text-black font-extrabold text-[10px] uppercase tracking-widest px-2.5 py-1 shadow-md">
+                                    ${product.category}
+                                </span>
+                            </div>
+
+                            <div class="p-6">
+                                <h4 class="font-display font-black text-xl uppercase italic mb-2 tracking-tight">
+                                    ${product.name}
+                                </h4>
+                                <p class="text-gray-400 text-sm mb-6 line-clamp-2 leading-relaxed">
+                                    ${product.description}
+                                </p>
+
+                                <!-- Size Selector -->
+                                <div class="mb-6">
+                                    <label class="block text-xs uppercase font-bold text-gray-400 mb-2">Seleccionar Talla:</label>
+                                    <div class="flex flex-wrap gap-2" id="sizes-${product.id}">
+                                        ${product.sizes.map((size, idx) => `
+                                            <button 
+                                                type="button"
+                                                onclick="selectSize('${product.id}', '${size}')" 
+                                                class="size-btn-${product.id} px-3.5 py-1.5 border text-xs font-bold transition-all ${idx === 0 ? 'bg-white text-black border-white' : 'bg-brand-dark text-gray-300 border-brand-border hover:border-gray-500'}"
+                                                data-size="${size}">
+                                                ${size}
+                                            </button>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-6 pt-0 mt-auto flex items-center justify-between border-t border-brand-border/40 pt-4">
+                            <div>
+                                <span class="block text-[10px] text-gray-500 uppercase">Precio</span>
+                                <span class="font-display font-extrabold text-xl text-white">${formatMoney(product.price)}</span>
+                            </div>
+                            <button 
+                                onclick="addToCart('${product.id}')" 
+                                class="px-5 py-3 bg-white text-black font-black text-xs uppercase tracking-wider hover:bg-gray-200 transition-colors flex items-center gap-2">
+                                <i class="fa-solid fa-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Handle Size Selection per Product
+        const selectedSizes = {};
+        products.forEach(p => selectedSizes[p.id] = p.sizes[0]);
+
+        function selectSize(productId, size) {
+            selectedSizes[productId] = size;
+            const buttons = document.querySelectorAll(`.size-btn-${productId}`);
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-size') === size) {
+                    btn.className = `size-btn-${productId} px-3 py-1.5 border text-xs font-bold transition-all bg-white text-black border-white`;
+                } else {
+                    btn.className = `size-btn-${productId} px-3 py-1.5 border text-xs font-bold transition-all bg-brand-dark text-gray-300 border-brand-border hover:border-gray-500`;
+                }
+            });
+        }
+
+        // Add to Cart Logic
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const size = selectedSizes[productId];
+            
+            const existingIndex = cart.findIndex(item => item.id === productId && item.size === size);
+
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    size: size,
+                    quantity: 1
+                });
+            }
+
+            updateCartUI();
+            toggleCart(true); // Open drawer on add
+        }
+
+        // Remove item from cart
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        // Change Quantity
+        function changeQty(index, delta) {
+            if (cart[index].quantity + delta > 0) {
+                cart[index].quantity += delta;
+            } else {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        // Update Cart UI
+        function updateCartUI() {
+            const countEl = document.getElementById('cart-count');
+            const itemsContainer = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            countEl.textContent = totalItems;
+            totalEl.textContent = formatMoney(totalPrice);
+
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = `
+                    <div class="text-center py-12 text-gray-500">
+                        <i class="fa-solid fa-bag-shopping text-4xl mb-3 opacity-30"></i>
+                        <p class="text-sm">Tu carrito está vacío.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            itemsContainer.innerHTML = cart.map((item, index) => `
+                <div class="p-4 bg-brand-card border border-brand-border rounded flex justify-between items-center">
+                    <div>
+                        <h5 class="font-display font-bold text-sm text-white uppercase">${item.name}</h5>
+                        <p class="text-xs text-gray-400 mt-1">Talla: <span class="text-white font-semibold">${item.size}</span></p>
+                        <p class="text-xs text-gray-400">${formatMoney(item.price)} c/u</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="flex items-center border border-brand-border rounded">
+                            <button onclick="changeQty(${index}, -1)" class="px-2 py-1 text-xs text-gray-400 hover:text-white">-</button>
+                            <span class="px-2 text-xs font-bold">${item.quantity}</span>
+                            <button onclick="changeQty(${index}, 1)" class="px-2 py-1 text-xs text-gray-400 hover:text-white">+</button>
+                        </div>
+                        <button onclick="removeFromCart(${index})" class="text-gray-500 hover:text-red-400 p-1">
+                            <i class="fa-solid fa-trash-can text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Toggle Cart Modal
+        function toggleCart(forceOpen = false) {
+            const overlay = document.getElementById('cart-overlay');
+            const drawer = document.getElementById('cart-drawer');
+            
+            const isOpen = !drawer.classList.contains('translate-x-full');
+
+            if (forceOpen || !isOpen) {
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                drawer.classList.remove('translate-x-full');
+            } else {
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+                drawer.classList.add('translate-x-full');
+            }
+        }
+
+        // Generate WhatsApp Checkout Link
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert('Tu carrito está vacío. Agrega productos antes de realizar el pedido.');
+                return;
+            }
+
+            let message = "🔥 *NUEVO PEDIDO EN DRIPKICKS* 🔥\n\n";
+            message += "Hola! Quisiera realizar la compra de los siguientes productos:\n\n";
+
+            let total = 0;
+            cart.forEach((item, i) => {
+                const subtotal = item.price * item.quantity;
+                total += subtotal;
+                message += `${i + 1}. *${item.name}*\n`;
+                message += `   • Talla: ${item.size}\n`;
+                message += `   • Cantidad: ${item.quantity}\n`;
+                message += `   • Subtotal: ${formatMoney(subtotal)}\n\n`;
+            });
+
+            message += `*TOTAL A PAGAR:* ${formatMoney(total)}\n\n`;
+            message += "Quedo atento a la información de pago y envío. ¡Muchas gracias!";
+
+            const encodedMessage = encodeURIComponent(message);
+            const waUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+            window.open(waUrl, '_blank');
+        }
+
+        // Initialize Store on load
+        window.onload = function() {
+            renderProducts();
+            updateCartUI();
+        };
+    </script>
+</body>
+</html>
